@@ -1,0 +1,207 @@
+<div class="grid-container">
+    <h1 mat-dialog-title>{{title}}</h1>
+    <div class="grid">
+        <div class="mat-elevation-z8">
+            <form class="example-form" [formGroup]="profileForm" novalidate>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>User Id</mat-label>
+                    <input matInput [(ngModel)]="profile.userId" name="userId" formControlName="userId">
+                </mat-form-field>
+
+                <mat-grid-list cols="2" rowHeight="70px" gutterSize="5px">
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your father name</mat-label>
+                            <input matInput [(ngModel)]="profile.fatherName" name="fatherName"
+                                formControlName="fatherName">
+                            <mat-error *ngIf="profileForm.get('fatherName').hasError('required')">
+                                Father Name is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your mother name</mat-label>
+                            <input matInput [(ngModel)]="profile.motherName" name="motherName"
+                                formControlName="motherName">
+                            <mat-error *ngIf="profileForm.get('motherName').hasError('required')">
+                                Mother Name is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your spouse name</mat-label>
+                            <input matInput [(ngModel)]="profile.spouseName" name="spouseName"
+                                [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your date of birth</mat-label>
+                            <input matInput [matDatepicker]="dateOfBirth" [(ngModel)]="profile.dateOfBirth"
+                                formControlName="dateOfBirth">
+                            <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+                            <mat-datepicker #dateOfBirth color="primary"></mat-datepicker>
+                            <mat-error *ngIf="profileForm.get('dateOfBirth').hasError('required')">
+                                Date of Birth is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your blood group</mat-label>
+                            <input matInput [(ngModel)]="profile.bloodGroup" name="bloodGroup"
+                                [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your profession</mat-label>
+                            <input matInput [(ngModel)]="profile.profession" name="profession"
+                                [ngModelOptions]="{standalone: true}">
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your mailing address</mat-label>
+                            <input matInput [(ngModel)]="profile.mailingAddress" name="mailingAddress"
+                                formControlName="mailingAddress">
+                            <mat-error *ngIf="profileForm.get('mailingAddress').hasError('required')">
+                                Mailing address is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field appearance="fill">
+                            <mat-label>NID Type</mat-label>
+                            <mat-select [(ngModel)]="profile.nidType" name="nidType" formControlName="nidType"
+                                [ngModelOptions]="{standalone: true}">
+                                <mat-option *ngFor="let nidType of nidTypes" [value]="nidType">
+                                    {{nidType}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="profileForm.get('nidType').hasError('required')">
+                                Nid type is required.
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your NID</mat-label>
+                            <input matInput [(ngModel)]="profile.nid" name="nid" formControlName="nid">
+                            <mat-error *ngIf="profileForm.get('nid').hasError('required')">
+                                NID is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your birth registration no</mat-label>
+                            <input matInput [(ngModel)]="profile.dob" name="birthRegistrationNo"
+                                [ngModelOptions]="{standalone: true}">
+                            <!-- <mat-error *ngIf="profileForm.get('dob').hasError('required')">
+                                Father Name is required
+                            </mat-error> -->
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your present address</mat-label>
+                            <input matInput [(ngModel)]="profile.presentAddress" name="presentAddress"
+                                formControlName="presentAddress">
+                            <mat-error *ngIf="profileForm.get('presentAddress').hasError('required')">
+                                Present address is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your permanent address</mat-label>
+                            <input matInput [(ngModel)]="profile.permanentAddress" name="permanentAddress"
+                                formControlName="permanentAddress">
+                            <mat-error *ngIf="profileForm.get('permanentAddress').hasError('required')">
+                                Permanent Address is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your nominee name</mat-label>
+                            <input matInput [(ngModel)]="profile.nomineeName" name="nomineeName"
+                                formControlName="nomineeName">
+                            <mat-error *ngIf="profileForm.get('nomineeName').hasError('required')">
+                                Nominee name is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your nominee phone number</mat-label>
+                            <input matInput [(ngModel)]="profile.nomineePhoneNumber" name="nomineePhoneNumber"
+                                formControlName="nomineePhoneNumber">
+                            <mat-error *ngIf="profileForm.get('nomineePhoneNumber').hasError('required')">
+                                Noninee phone is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <!-- <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your dealer area</mat-label>
+                            <input matInput [(ngModel)]="profile.dealerArea" name="dealerArea"
+                                formControlName="dealerArea">
+                            <mat-error *ngIf="profileForm.get('dealerArea').hasError('required')">
+                                Dealer area is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile> -->
+
+                    <!-- <mat-grid-tile>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Enter your position</mat-label>
+                            <input matInput [(ngModel)]="profile.position" name="position" formControlName="position">
+                            <mat-error *ngIf="profileForm.get('position').hasError('required')">
+                                Position is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile> -->
+
+                </mat-grid-list>
+                <mat-grid-list cols="1" rowHeight="90px">
+
+                    <mat-form-field appearance="outline">
+                        <ngx-mat-file-input formControlName="image" [multiple]="false" [accept]="'.jpg,.png'"
+                            name="image" placeholder="Select profile image" (change)="uploadProfileImage($event)"
+                            [ngModelOptions]="{standalone: true}">
+                        </ngx-mat-file-input>
+                        <p class="file-size">Allowed formats: .png, .jpg, .jpeg<br />
+                            Max Size: {{ profileImageSize }} Kb</p>
+                    </mat-form-field>
+                    <a style="margin-left: 10px;" href="#"
+                        (click)="showProfileImagePopup($event)">{{profile.imageName}}</a>
+
+                </mat-grid-list>
+
+                <div class="action">
+                    <button mat-raised-button color="primary" (click)="saveProfile(profile)">{{saveText}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

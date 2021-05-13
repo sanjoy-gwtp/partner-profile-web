@@ -1,0 +1,27 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false" [mode]="'side'" [opened]="!(isHandset | async)!.matches">
+    <main-menu></main-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="tool">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{title}}</span>
+
+      <span class="spacer"></span>
+
+      <mat-icon class="toolicon">notification_important</mat-icon>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>{{userName}}</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </mat-menu>
+
+    </mat-toolbar>
+    <mat-toolbar></mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

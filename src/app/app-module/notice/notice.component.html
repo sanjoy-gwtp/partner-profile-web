@@ -1,0 +1,10 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Notice</h1>
+    <div class="grid">
+        <mat-list-item class="message-card" *ngFor="let notice of notices">
+            <mat-card class="message-card flex-row-reverse">
+               {{notice.description}}
+            </mat-card>
+        </mat-list-item>
+    </div>
+</div>

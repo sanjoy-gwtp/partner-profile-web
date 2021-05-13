@@ -1,0 +1,15 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Vote</h1>
+    <div class="grid">
+        <mat-list-item class="message-card" *ngFor="let vote of votes">
+            <mat-card class="message-card flex-row-reverse">
+                <section class="example-section">
+                    {{vote.description}}<mat-checkbox class="example-margin" [(ngModel)]="vote.isActive">
+                    </mat-checkbox>
+                    <span class="spacer"></span>
+                    <button mat-raised-button (click)="saveSelection(vote)">Vote Me</button>
+                </section>
+            </mat-card>
+        </mat-list-item>
+    </div>
+</div>

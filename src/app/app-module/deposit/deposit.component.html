@@ -1,0 +1,54 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Deposit List</h1>
+    <div class="grid">
+        <div class="mat-elevation-z8">
+            <mat-table [dataSource]="DataSource">
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="toAccount">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Account </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.fromAccount}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="amount">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.amount}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="paymentMethod">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Payment Method </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.paymentMethod.name}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="txnRequestStatus">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.txnRequestStatus}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="actionsColumn">
+                    <mat-header-cell *matHeaderCellDef>
+                        <!-- <button mat-icon-button color="primary" (click)="searchWithdraw()">
+                            <i class="material-icons">search</i></button> -->
+                        <button mat-icon-button color="primary" (click)="addWithdraw()">
+                            <i class="material-icons">add</i></button>
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <!-- <button mat-icon-button color="primary">
+                            <i class="material-icons" routerLink="/product-category/{{row.id}}">edit</i>
+                        </button>
+                        <button mat-icon-button color="primary">
+                            <i class="material-icons" (click)="clickDelete(row)">delete</i>
+                        </button> -->
+                    </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+
+            <mat-paginator #paginator [pageSize]="PageSize" [pageSizeOptions]="[5, 10, 20]"
+                [showFirstLastButtons]="true" [length]="TotalSize" [pageIndex]="CurrentPage"
+                (page)="pageEvent = handlePage($event)">
+            </mat-paginator>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="grid-container">
+    <h1 class="mat-h1">Training Videos</h1>
+    <mat-grid-list cols="2">
+        <mat-grid-tile [colspan]="2" [rowspan]="1" *ngFor="let video of trainingVideos">
+
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        {{video.description}}
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    <app-training-video-player [videoId]="video.url"></app-training-video-player>
+                </mat-card-content>
+            </mat-card>
+
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

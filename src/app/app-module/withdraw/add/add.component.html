@@ -1,0 +1,41 @@
+<div class="grid-container">
+    <h1 mat-dialog-title>{{title}}</h1>
+    <div class="grid">
+        <div class="mat-elevation-z8">
+            <form class="example-form" [formGroup]="transactionRequestForm" novalidate>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Payment Method</mat-label>
+                        <mat-select [(ngModel)]="transactionRequest.paymentMethod.id" name="paymentMethod" formControlName="paymentMethod"
+                            [ngModelOptions]="{standalone: true}">
+                            <mat-option *ngFor="let paymentMethod of paymentMethords" [value]="paymentMethod.id">
+                                {{paymentMethod.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="transactionRequestForm.get('paymentMethod').hasError('required')">
+                            PaymentMethod is required.
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Enter To Account</mat-label>
+                        <input matInput [(ngModel)]="transactionRequest.toAccount" name="toAccount" formControlName="toAccount">
+                        <mat-error *ngIf="transactionRequestForm.get('toAccount').hasError('required')">
+                            Account is required
+                        </mat-error>
+                    </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Enter Amount</mat-label>
+                    <input matInput [(ngModel)]="transactionRequest.amount" name="amount" formControlName="amount">
+                    <mat-error *ngIf="transactionRequestForm.get('amount').hasError('required')">
+                        Amount is required
+                    </mat-error>
+                </mat-form-field>
+                <div class="action">
+                    <button mat-raised-button color="warn" (click)="onBackClick()">Back</button>
+                    <button mat-raised-button color="primary"
+                        (click)="saveTransactionRequest(transactionRequest)">{{saveText}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

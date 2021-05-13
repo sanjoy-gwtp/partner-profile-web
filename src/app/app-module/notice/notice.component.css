@@ -1,0 +1,54 @@
+.grid{
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 90%;
+ }
+ .grid-container { 
+    margin: 10px; 
+ }
+ .margin{ 
+    margin: 20px; 
+ }
+ /* .mat-card {
+     columns: 2;
+ } */
+ .spacer{
+    flex: 1 1 auto;
+  }
+  .side-nav{
+    width: 25%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0,0,0,.12);
+  }
+  .main-nav{
+    width: 75%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0,0,0,.12);
+  }
+  .height{
+      height: 85%;
+  }
+
+  .mat-form-field{
+      width: 90%;
+  }
+  .message-card{
+      padding: 10px;
+  }
+  /* .is-active {
+    background-color: red;
+} */
+/* .mat-list-item {
+    background-color: #574242; 
+} */
+
+.tottal{
+    display: flex;
+    flex-direction: row;
+   height: 500px;
+}
+.spacer{
+    flex: 1 1 auto;
+  }

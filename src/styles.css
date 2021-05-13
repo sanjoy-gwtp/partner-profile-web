@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; }
+
+.table{
+    padding:20px;
+  }
+  
+  .grid{
+     padding-left: 5%;
+     padding-right: 5%;
+  }
+  
+  mat-row {
+    min-height: 30px;
+  }
+  .grid-container { 
+    margin: 10px; 
+ }
+
+ 
+ .grid{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.grid-container { 
+ margin: 10px; 
+}
+.example-form {
+ /* min-width: 150px;
+ max-width: 500px; */
+ width: 100%;
+}
+
+.example-full-width {
+ width: 100%;
+}
+
+.mat-elevation-z8 {
+  padding: 10px;
+}
+
+.action {
+  margin-top: 10px;
+}
+.action .mat-raised-button {
+  margin: 8px 8px 8px 0;
+}
+
+.mat-header-cell {
+  font-size: 1em;
+  font-weight: bold;
+}
